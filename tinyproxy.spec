@@ -5,7 +5,7 @@ Version:	1.6.1
 Release:	3
 License:	GPL v2
 Group:		Networking/Daemons
-Source0:	http://dl.sourceforge.net/sourceforge/%{name}/%{name}-%{version}.tar.gz
+Source0:	http://dl.sourceforge.net/%{name}/%{name}-%{version}.tar.gz
 # Source0-md5:	e4164b06bbd296dd312df22465a550f6
 Source1:	tinyproxy.init
 Patch0:		tinyproxy-config.patch
@@ -52,17 +52,17 @@ rm -rf $RPM_BUILD_ROOT
 %post
 /sbin/chkconfig --add tinyproxy
 if [ -f /var/lock/subsys/tinyproxy ]; then
-        /etc/rc.d/init.d/tinyproxy restart 1>&2
+	/etc/rc.d/init.d/tinyproxy restart 1>&2
 else
-        echo "Run \"/etc/rc.d/init.d/tinyproxy start\" to start tinyproxy daemon."
+	echo "Run \"/etc/rc.d/init.d/tinyproxy start\" to start tinyproxy daemon."
 fi
 
 %preun
 if [ "$1" = "0" ]; then
-        if [ -f /var/lock/subsys/tinyproxy ]; then
-                /etc/rc.d/init.d/tinyproxy stop 1>&2
-        fi
-        /sbin/chkconfig --del tinyproxy
+	if [ -f /var/lock/subsys/tinyproxy ]; then
+		/etc/rc.d/init.d/tinyproxy stop 1>&2
+	fi
+	/sbin/chkconfig --del tinyproxy
 fi
 
 %files
