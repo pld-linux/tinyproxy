@@ -1,5 +1,5 @@
 Summary:	Small HTTP/SSL proxy deamon
-Summary(pl):	Ma³y demon proxy
+Summary(pl):	Ma³y demon proxy 
 Name:		tinyproxy
 Version:	1.5.0
 Release:	1
@@ -32,7 +32,7 @@ install  src/tinyproxy $RPM_BUILD_ROOT%{_bindir}
 install  doc/tinyproxy.8 $RPM_BUILD_ROOT%{_mandir}/man8
 install  doc/tinyproxy.conf $RPM_BUILD_ROOT%{_sysconfdir}/tinyproxy
 
-gzip -9nf AUTHORS INSTALL README TODO
+gzip -9nf AUTHORS  README TODO
 
 %clean
 rm -rf $RPM_BUILD_ROOT
