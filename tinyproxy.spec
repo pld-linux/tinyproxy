@@ -13,7 +13,7 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 Tinyproxy is a small, efficient HTTP/SSL proxy daemon.Tinyproxy is
 very useful in a small network.
 
-%descrioption -l pl
+%description -l pl
 Tinyproxy jest ma³ym, wydajnym demonem proxy. Jest bardzo przydatny w ma³ych
 sieciach lokalnych.
 
@@ -32,14 +32,12 @@ install  src/tinyproxy $RPM_BUILD_ROOT%{_bindir}
 install  doc/tinyproxy.8 $RPM_BUILD_ROOT%{_mandir}/man8
 install  doc/tinyproxy.conf $RPM_BUILD_ROOT%{_sysconfdir}/tinyproxy
 
-gzip -9nf AUTHORS  README TODO
-
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
+%doc AUTHORS README TODO
 %attr(755,root,root) %{_bindir}
 %attr(644,root,root) %{_sysconfdir}/tinyproxy
 %{_mandir}/man8/tinyproxy*
-%doc *.gz
