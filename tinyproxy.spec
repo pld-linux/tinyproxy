@@ -1,5 +1,5 @@
 Summary:	Small HTTP/SSL proxy deamon
-Summary(pl):	Ma³y demon proxy 
+Summary(pl):	Ma³y demon proxy
 Name:		tinyproxy
 Version:	1.5.0
 Release:	2
