@@ -1,21 +1,21 @@
-diff -ur tinyproxy-1.6.1/doc/tinyproxy.conf tinyproxy-1.6.1-config/doc/tinyproxy.conf
---- tinyproxy-1.6.1/doc/tinyproxy.conf	2003-06-23 23:14:32.000000000 +0200
-+++ tinyproxy-1.6.1-config/doc/tinyproxy.conf	2003-08-22 15:17:03.000000000 +0200
-@@ -7,7 +7,7 @@
- # has been bound.
+diff -uNr tinyproxy-1.7.0/doc/tinyproxy.conf tinyproxy-1.7.0-new/doc/tinyproxy.conf
+--- tinyproxy-1.7.0/doc/tinyproxy.conf	Mon Jan 26 19:56:25 2004
++++ tinyproxy-1.7.0-new/doc/tinyproxy.conf	Thu Feb  5 20:25:10 2004
+@@ -10,7 +10,7 @@
+ # Please note that you may not use UID/GID's here.  
  #
- User nobody
+ User nobody 
 -Group nogroup
 +Group nobody
  
  #
- # Port to listen on.
-@@ -167,7 +167,7 @@
- # are tested against the controls based on order.
+ # Port: Specify the port which tinyproxy will listen on.  Please note
+@@ -189,7 +189,7 @@
+ # tested against the controls based on order.
  #
  Allow 127.0.0.1
 -Allow 192.168.1.0/25
 +#Allow 192.168.1.0/25
  
  #
- # The "Via" header is required by the HTTP RFC, but using the real host name
+ # ViaProxyName: The "Via" header is required by the HTTP RFC, but using
