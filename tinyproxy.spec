@@ -1,12 +1,12 @@
 Summary:	Small HTTP/SSL proxy deamon
 Summary(pl):	Ma³y demon proxy
 Name:		tinyproxy
-Version:	1.5.0
-Release:	2
+Version:	1.6.0
+Release:	1
 License:	GPL
 Group:		Networking/Daemons
 Source0:	http://dl.sourceforge.net/sourceforge/%{name}/%{name}-%{version}.tar.gz
-# Source0-md5:	2236b57f183b168dcfaaffbda43b4051
+# Source0-md5:	a3c1e5ea2ab9972bec30e1cd035a96aa
 URL:		http://tinyproxy.sourceforge.net/
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
