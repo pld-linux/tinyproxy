@@ -5,7 +5,7 @@ Version:	1.5.0
 Release:	2
 License:	GPL
 Group:		Networking/Daemons
-Source0:	http://belnet.dl.sourceforge.net/sourceforge/tinyproxy/%{name}-%{version}.tar.gz
+Source0:	http://dl.sourceforge.net/sourceforge/%{name}/%{name}-%{version}.tar.gz
 # Source0-md5:	2236b57f183b168dcfaaffbda43b4051
 URL:		http://tinyproxy.sourceforge.net/
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
