@@ -16,7 +16,7 @@ BuildRequires:	libtool
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
-Tinyproxy is a small, efficient HTTP/SSL proxy daemon.Tinyproxy is
+Tinyproxy is a small, efficient HTTP/SSL proxy daemon. Tinyproxy is
 very useful in a small network.
 
 %description -l pl
