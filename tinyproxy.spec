@@ -2,7 +2,7 @@ Summary:	Small HTTP/SSL proxy deamon
 Summary(pl):	Ma造 demon proxy 
 Name:		tinyproxy
 Version:	1.5.0
-Release:	1
+Release:	2
 License:	GPL
 Group:		Networking/Daemons
 Source0:	http://belnet.dl.sourceforge.net/sourceforge/tinyproxy/%{name}-%{version}.tar.gz
@@ -14,8 +14,8 @@ Tinyproxy is a small, efficient HTTP/SSL proxy daemon.Tinyproxy is
 very useful in a small network.
 
 %description -l pl
-Tinyproxy jest ma造m, wydajnym demonem proxy. Jest bardzo przydatny w ma造ch
-sieciach lokalnych.
+Tinyproxy jest ma造m, wydajnym demonem proxy. Jest bardzo przydatny w
+ma造ch sieciach lokalnych.
 
 %prep
 %setup -q
@@ -38,6 +38,6 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc AUTHORS README TODO
-%attr(755,root,root) %{_bindir}
+%attr(755,root,root) %{_bindir}/*
 %attr(644,root,root) %{_sysconfdir}/tinyproxy
 %{_mandir}/man8/tinyproxy*
