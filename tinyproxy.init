@@ -51,7 +51,7 @@ case "$1" in
 		rm -f /var/lock/subsys/tinyproxy
 	else
 		msg_not_running tinyproxy
-	fi	
+	fi
  	;;
   restart)
 	$0 stop
