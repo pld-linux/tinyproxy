@@ -1,4 +1,4 @@
-Summary:	Small HTTP/SSL proxy deamon
+Summary:	Small HTTP/SSL proxy daemon
 Summary(pl):	Ma³y demon proxy
 Name:		tinyproxy
 Version:	1.7.0
