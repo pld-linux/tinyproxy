@@ -5,16 +5,16 @@ Version:	1.7.0
 Release:	1
 License:	GPL v2
 Group:		Networking/Daemons
-Source0:	http://dl.sourceforge.net/%{name}/%{name}-%{version}.tar.gz
+Source0:	http://dl.sourceforge.net/tinyproxy/%{name}-%{version}.tar.gz
 # Source0-md5:	ccacdd9cb093202886b6c7c9e453a804
-Source1:	tinyproxy.init
-Patch0:		tinyproxy-config.patch
+Source1:	%{name}.init
+Patch0:		%{name}-config.patch
 URL:		http://tinyproxy.sourceforge.net/
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	libtool
-PreReq:		rc-scripts
 Requires(post,preun):	/sbin/chkconfig
+Requires:	rc-scripts
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -71,6 +71,6 @@ fi
 %defattr(644,root,root,755)
 %doc AUTHORS README TODO
 %attr(755,root,root) %{_bindir}/*
-%attr(644,root,root) %{_sysconfdir}/tinyproxy
+%{_sysconfdir}/tinyproxy
 %attr(754,root,root) /etc/rc.d/init.d/tinyproxy
 %{_mandir}/man8/tinyproxy*
