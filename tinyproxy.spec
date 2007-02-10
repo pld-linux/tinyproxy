@@ -22,8 +22,8 @@ Tinyproxy is a small, efficient HTTP/SSL proxy daemon. Tinyproxy is
 very useful in a small network.
 
 %description -l pl
-Tinyproxy jest ma造m, wydajnym demonem proxy. Jest bardzo przydatny w
-ma造ch sieciach lokalnych.
+Tinyproxy jest ma造m, wydajnym demonem proxy HTTP/SSL. Jest bardzo
+przydatny w ma造ch sieciach lokalnych.
 
 %prep
 %setup -q
