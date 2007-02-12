@@ -1,5 +1,5 @@
 Summary:	Small HTTP/SSL proxy daemon
-Summary(pl.UTF-8):   Mały demon proxy
+Summary(pl.UTF-8):	Mały demon proxy
 Name:		tinyproxy
 Version:	1.7.0
 Release:	1
