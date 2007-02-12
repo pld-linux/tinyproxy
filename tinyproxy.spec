@@ -1,5 +1,5 @@
 Summary:	Small HTTP/SSL proxy daemon
-Summary(pl):	Ma≥y demon proxy
+Summary(pl.UTF-8):   Ma≈Çy demon proxy
 Name:		tinyproxy
 Version:	1.7.0
 Release:	1
@@ -21,9 +21,9 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 Tinyproxy is a small, efficient HTTP/SSL proxy daemon. Tinyproxy is
 very useful in a small network.
 
-%description -l pl
-Tinyproxy jest ma≥ym, wydajnym demonem proxy HTTP/SSL. Jest bardzo
-przydatny w ma≥ych sieciach lokalnych.
+%description -l pl.UTF-8
+Tinyproxy jest ma≈Çym, wydajnym demonem proxy HTTP/SSL. Jest bardzo
+przydatny w ma≈Çych sieciach lokalnych.
 
 %prep
 %setup -q
