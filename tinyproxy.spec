@@ -35,7 +35,8 @@ przydatny w małych sieciach lokalnych.
 %{__autoconf}
 %{__autoheader}
 %{__automake}
-%configure
+%configure \
+	--enable-transparent-proxy
 
 %{__make}
 
