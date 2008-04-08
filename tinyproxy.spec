@@ -2,7 +2,7 @@ Summary:	Small HTTP/SSL proxy daemon
 Summary(pl.UTF-8):	Mały demon proxy
 Name:		tinyproxy
 Version:	1.7.0
-Release:	1
+Release:	2
 License:	GPL v2
 Group:		Networking/Daemons
 Source0:	http://dl.sourceforge.net/tinyproxy/%{name}-%{version}.tar.gz
@@ -42,11 +42,12 @@ przydatny w małych sieciach lokalnych.
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT{%{_bindir},%{_mandir}/man8,%{_sysconfdir}/tinyproxy,/etc/rc.d/init.d}
-install  src/tinyproxy $RPM_BUILD_ROOT%{_bindir}
-install  doc/tinyproxy.8 $RPM_BUILD_ROOT%{_mandir}/man8
-install  doc/tinyproxy.conf $RPM_BUILD_ROOT%{_sysconfdir}/tinyproxy
-
+install -d $RPM_BUILD_ROOT{%{_bindir},%{_mandir}/man8,%{_sysconfdir}/tinyproxy,/etc/rc.d/init.d,%{_datadir}/%{name}}
+install src/tinyproxy $RPM_BUILD_ROOT%{_bindir}
+install doc/tinyproxy.8 $RPM_BUILD_ROOT%{_mandir}/man8
+install doc/tinyproxy.conf $RPM_BUILD_ROOT%{_sysconfdir}/tinyproxy
+install doc/stats.html $RPM_BUILD_ROOT%{_datadir}/%{name}
+install doc/default.html $RPM_BUILD_ROOT%{_datadir}/%{name}
 install %{SOURCE1} $RPM_BUILD_ROOT/etc/rc.d/init.d/tinyproxy
 
 %clean
@@ -72,6 +73,8 @@ fi
 %defattr(644,root,root,755)
 %doc AUTHORS README TODO
 %attr(755,root,root) %{_bindir}/*
-%{_sysconfdir}/tinyproxy
+%{_datadir}/%{name}
+%dir %{_sysconfdir}/tinyproxy
+%config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/tinyproxy/tinyproxy.conf
 %attr(754,root,root) /etc/rc.d/init.d/tinyproxy
 %{_mandir}/man8/tinyproxy*
