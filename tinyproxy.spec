@@ -4,7 +4,7 @@ Name:		tinyproxy
 Version:	1.7.0
 Release:	2
 License:	GPL v2
-Group:		Networking/Daemons
+Group:		Networking/Daemons/HTTP
 Source0:	http://dl.sourceforge.net/tinyproxy/%{name}-%{version}.tar.gz
 # Source0-md5:	ccacdd9cb093202886b6c7c9e453a804
 Source1:	%{name}.init
