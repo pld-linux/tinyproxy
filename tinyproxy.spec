@@ -1,29 +1,27 @@
-Summary:	Small HTTP/SSL proxy daemon
-Summary(pl.UTF-8):	Ma≈Çy demon proxy
+Summary:	Small HTTP/SSL proxy deamon
+Summary(pl):	Ma≥y demon proxy
 Name:		tinyproxy
-Version:	1.7.0
-Release:	2
+Version:	1.6.2
+Release:	3
 License:	GPL v2
-Group:		Networking/Daemons/HTTP
-Source0:	http://dl.sourceforge.net/tinyproxy/%{name}-%{version}.tar.gz
-# Source0-md5:	ccacdd9cb093202886b6c7c9e453a804
-Source1:	%{name}.init
-Patch0:		%{name}-config.patch
+Group:		Networking/Daemons
+Source0:	http://dl.sourceforge.net/%{name}/%{name}-%{version}.tar.gz
+# Source0-md5:	08abe93ebd3a229a68e471bb5e013c46
+Source1:	tinyproxy.init
+Patch0:		tinyproxy-config.patch
 URL:		http://tinyproxy.sourceforge.net/
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	libtool
-Requires(post,preun):	/sbin/chkconfig
-Requires:	rc-scripts
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
 Tinyproxy is a small, efficient HTTP/SSL proxy daemon. Tinyproxy is
 very useful in a small network.
 
-%description -l pl.UTF-8
-Tinyproxy jest ma≈Çym, wydajnym demonem proxy HTTP/SSL. Jest bardzo
-przydatny w ma≈Çych sieciach lokalnych.
+%description -l pl
+Tinyproxy jest ma≥ym, wydajnym demonem proxy. Jest bardzo przydatny w
+ma≥ych sieciach lokalnych.
 
 %prep
 %setup -q
@@ -35,19 +33,17 @@ przydatny w ma≈Çych sieciach lokalnych.
 %{__autoconf}
 %{__autoheader}
 %{__automake}
-%configure \
-	--enable-transparent-proxy
+%configure
 
 %{__make}
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT{%{_bindir},%{_mandir}/man8,%{_sysconfdir}/tinyproxy,/etc/rc.d/init.d,%{_datadir}/%{name}}
-install src/tinyproxy $RPM_BUILD_ROOT%{_bindir}
-install doc/tinyproxy.8 $RPM_BUILD_ROOT%{_mandir}/man8
-install doc/tinyproxy.conf $RPM_BUILD_ROOT%{_sysconfdir}/tinyproxy
-install doc/stats.html $RPM_BUILD_ROOT%{_datadir}/%{name}
-install doc/default.html $RPM_BUILD_ROOT%{_datadir}/%{name}
+install -d $RPM_BUILD_ROOT{%{_bindir},%{_mandir}/man8,%{_sysconfdir}/tinyproxy,/etc/rc.d/init.d}
+install  src/tinyproxy $RPM_BUILD_ROOT%{_bindir}
+install  doc/tinyproxy.8 $RPM_BUILD_ROOT%{_mandir}/man8
+install  doc/tinyproxy.conf $RPM_BUILD_ROOT%{_sysconfdir}/tinyproxy
+
 install %{SOURCE1} $RPM_BUILD_ROOT/etc/rc.d/init.d/tinyproxy
 
 %clean
@@ -73,8 +69,6 @@ fi
 %defattr(644,root,root,755)
 %doc AUTHORS README TODO
 %attr(755,root,root) %{_bindir}/*
-%{_datadir}/%{name}
-%dir %{_sysconfdir}/tinyproxy
-%config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/tinyproxy/tinyproxy.conf
+%attr(644,root,root) %{_sysconfdir}/tinyproxy
 %attr(754,root,root) /etc/rc.d/init.d/tinyproxy
 %{_mandir}/man8/tinyproxy*
