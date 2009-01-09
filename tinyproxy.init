@@ -35,7 +35,7 @@ case "$1" in
 	# Check if the service is already running?
 	if [ ! -f /var/lock/subsys/tinyproxy ]; then
 		msg_starting tinyproxy
-		daemon tinyproxy
+		daemon /usr/bin/tinyproxy
 		RETVAL=$?
 		[ $RETVAL -eq 0 ] && touch /var/lock/subsys/tinyproxy
 	else
