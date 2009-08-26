@@ -1,0 +1,21 @@
+diff -ur tinyproxy-1.6.1/doc/tinyproxy.conf tinyproxy-1.6.1-config/doc/tinyproxy.conf
+--- tinyproxy-1.6.1/doc/tinyproxy.conf	2003-06-23 23:14:32.000000000 +0200
++++ tinyproxy-1.6.1-config/doc/tinyproxy.conf	2003-08-22 15:17:03.000000000 +0200
+@@ -7,7 +7,7 @@
+ # has been bound.
+ #
+ User nobody
+-Group nogroup
++Group nobody
+ 
+ #
+ # Port to listen on.
+@@ -167,7 +167,7 @@
+ # are tested against the controls based on order.
+ #
+ Allow 127.0.0.1
+-Allow 192.168.1.0/25
++#Allow 192.168.1.0/25
+ 
+ #
+ # The "Via" header is required by the HTTP RFC, but using the real host name
