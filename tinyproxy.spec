@@ -1,3 +1,6 @@
+# NOTE:
+# - acording to tinyproxy homepage this is unstable *development* version not
+#   suitable for production use. See TINYPROXY_1_6 branch for stable version
 Summary:	Small HTTP/SSL proxy daemon
 Summary(pl.UTF-8):	Mały demon proxy
 Name:		tinyproxy
@@ -13,6 +16,7 @@ URL:		http://tinyproxy.sourceforge.net/
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	libtool
+BuildRequires:	rpmbuild(macros) >= 1.228
 Requires(post,preun):	/sbin/chkconfig
 Requires:	rc-scripts
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -55,17 +59,11 @@ rm -rf $RPM_BUILD_ROOT
 
 %post
 /sbin/chkconfig --add tinyproxy
-if [ -f /var/lock/subsys/tinyproxy ]; then
-	/etc/rc.d/init.d/tinyproxy restart 1>&2
-else
-	echo "Run \"/etc/rc.d/init.d/tinyproxy start\" to start tinyproxy daemon."
-fi
+%service tinyproxy restart "tinyproxy daemon"
 
 %preun
 if [ "$1" = "0" ]; then
-	if [ -f /var/lock/subsys/tinyproxy ]; then
-		/etc/rc.d/init.d/tinyproxy stop 1>&2
-	fi
+	%service tinyproxy stop
 	/sbin/chkconfig --del tinyproxy
 fi
 
