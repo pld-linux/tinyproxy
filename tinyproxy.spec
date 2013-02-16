@@ -12,6 +12,7 @@ Source0:	http://dl.sourceforge.net/tinyproxy/%{name}-%{version}.tar.gz
 # Source0-md5:	ccacdd9cb093202886b6c7c9e453a804
 Source1:	%{name}.init
 Patch0:		%{name}-config.patch
+Patch1:		%{name}-ac.patch
 URL:		http://tinyproxy.sourceforge.net/
 BuildRequires:	autoconf
 BuildRequires:	automake
@@ -32,6 +33,7 @@ przydatny w małych sieciach lokalnych.
 %prep
 %setup -q
 %patch0 -p1
+%patch1 -p1
 
 %build
 %{__libtoolize}

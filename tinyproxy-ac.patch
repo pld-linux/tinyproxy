@@ -1,0 +1,10 @@
+--- tinyproxy-1.7.0/configure.ac~	2004-01-26 19:56:25.000000000 +0100
++++ tinyproxy-1.7.0/configure.ac	2013-02-16 21:59:52.717464837 +0100
+@@ -229,7 +229,6 @@
+ dnl
+ dnl Checks for types
+ dnl
+-AM_C_PROTOTYPES
+ AC_C_CONST
+ AC_C_INLINE
+ AC_TYPE_SIZE_T
