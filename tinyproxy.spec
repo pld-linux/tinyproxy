@@ -1,18 +1,16 @@
-# NOTE:
-# - acording to tinyproxy homepage this is unstable *development* version not
-#   suitable for production use. See TINYPROXY_1_6 branch for stable version
+# TODO: Review -ac.patch if it's still neded.
 Summary:	Small HTTP/SSL proxy daemon
 Summary(pl.UTF-8):	Mały demon proxy
 Name:		tinyproxy
-Version:	1.7.0
-Release:	2
+Version:	1.8.3
+Release:	1
 License:	GPL v2
 Group:		Networking/Daemons/HTTP
-Source0:	http://dl.sourceforge.net/tinyproxy/%{name}-%{version}.tar.gz
-# Source0-md5:	ccacdd9cb093202886b6c7c9e453a804
+# Source0:	http://dl.sourceforge.net/tinyproxy/%{name}-%{version}.tar.gz
+Source0:	https://files.banu.com/tinyproxy/1.8/%{name}-%{version}.tar.bz2
+# Source0-md5:	292ac51da8ad6ae883d4ebf56908400d
 Source1:	%{name}.init
-Patch0:		%{name}-config.patch
-Patch1:		%{name}-ac.patch
+## Patch1:		%{name}-ac.patch
 URL:		http://tinyproxy.sourceforge.net/
 BuildRequires:	autoconf
 BuildRequires:	automake
@@ -32,8 +30,7 @@ przydatny w małych sieciach lokalnych.
 
 %prep
 %setup -q
-%patch0 -p1
-%patch1 -p1
+# %patch1 -p1
 
 %build
 %{__libtoolize}
@@ -41,20 +38,20 @@ przydatny w małych sieciach lokalnych.
 %{__autoconf}
 %{__autoheader}
 %{__automake}
-%configure \
-	--enable-transparent-proxy
+%configure  \
+	--enable-transparent
 
 %{__make}
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT{%{_bindir},%{_mandir}/man8,%{_sysconfdir}/tinyproxy,/etc/rc.d/init.d,%{_datadir}/%{name}}
-install src/tinyproxy $RPM_BUILD_ROOT%{_bindir}
-install doc/tinyproxy.8 $RPM_BUILD_ROOT%{_mandir}/man8
-install doc/tinyproxy.conf $RPM_BUILD_ROOT%{_sysconfdir}/tinyproxy
-install doc/stats.html $RPM_BUILD_ROOT%{_datadir}/%{name}
-install doc/default.html $RPM_BUILD_ROOT%{_datadir}/%{name}
-install %{SOURCE1} $RPM_BUILD_ROOT/etc/rc.d/init.d/tinyproxy
+install -d $RPM_BUILD_ROOT{%{_bindir},%{_mandir}/man5,%{_mandir}/man8,%{_sysconfdir}/tinyproxy,/etc/rc.d/init.d,%{_datadir}/%{name}}
+cp -p src/tinyproxy $RPM_BUILD_ROOT%{_bindir}
+cp -p data/templates/*.html $RPM_BUILD_ROOT%{_datadir}/%{name}
+cp -p docs/man8/tinyproxy.8 $RPM_BUILD_ROOT%{_mandir}/man8
+cp -p docs/man5/tinyproxy.conf.5  $RPM_BUILD_ROOT%{_mandir}/man5
+cp -p etc/tinyproxy.conf $RPM_BUILD_ROOT%{_sysconfdir}/tinyproxy
+cp -p %{SOURCE1} $RPM_BUILD_ROOT/etc/rc.d/init.d/tinyproxy
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -77,4 +74,5 @@ fi
 %dir %{_sysconfdir}/tinyproxy
 %config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/tinyproxy/tinyproxy.conf
 %attr(754,root,root) /etc/rc.d/init.d/tinyproxy
-%{_mandir}/man8/tinyproxy*
+%{_mandir}/man8/tinyproxy.*
+%{_mandir}/man5/tinyproxy.conf.*
