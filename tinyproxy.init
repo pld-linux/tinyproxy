@@ -6,8 +6,6 @@
 #
 # description:	tinyproxy is a small HTTP/HTTPS proxy server
 #
-# $Id$
-
 
 # Source function library
 . /etc/rc.d/init.d/functions
@@ -35,7 +33,7 @@ case "$1" in
 	# Check if the service is already running?
 	if [ ! -f /var/lock/subsys/tinyproxy ]; then
 		msg_starting tinyproxy
-		daemon /usr/bin/tinyproxy
+		daemon /usr/sbin/tinyproxy
 		RETVAL=$?
 		[ $RETVAL -eq 0 ] && touch /var/lock/subsys/tinyproxy
 	else
@@ -78,6 +76,3 @@ case "$1" in
 esac
 
 exit $RETVAL
-
-# This must be last line !
-# vi:syntax=sh:tw=78:ts=8:sw=4

@@ -28,18 +28,17 @@ przydatny w małych sieciach lokalnych.
 %build
 %configure \
 	--disable-silent-rules \
+	--sysconfdir=%{_sysconfdir}/%{name} \
 	--enable-transparent
 
 %{__make}
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT{%{_bindir},%{_mandir}/man5,%{_mandir}/man8,%{_sysconfdir}/%{name},/etc/rc.d/init.d,%{_datadir}/%{name}}
-cp -p src/tinyproxy $RPM_BUILD_ROOT%{_bindir}
-cp -p data/templates/*.html $RPM_BUILD_ROOT%{_datadir}/%{name}
-cp -p docs/man8/tinyproxy.8 $RPM_BUILD_ROOT%{_mandir}/man8
-cp -p docs/man5/tinyproxy.conf.5  $RPM_BUILD_ROOT%{_mandir}/man5
-cp -p etc/tinyproxy.conf $RPM_BUILD_ROOT%{_sysconfdir}/%{name}
+%{__make} install \
+	DESTDIR=$RPM_BUILD_ROOT
+
+install -d $RPM_BUILD_ROOT/etc/rc.d/init.d
 cp -p %{SOURCE1} $RPM_BUILD_ROOT/etc/rc.d/init.d/tinyproxy
 
 %clean
@@ -58,7 +57,7 @@ fi
 %files
 %defattr(644,root,root,755)
 %doc AUTHORS README TODO
-%attr(755,root,root) %{_bindir}/tinyproxy
+%attr(755,root,root) %{_sbindir}/tinyproxy
 %{_datadir}/%{name}
 %dir %{_sysconfdir}/%{name}
 %config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/%{name}/tinyproxy.conf
