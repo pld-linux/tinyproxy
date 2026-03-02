@@ -2,7 +2,7 @@ Summary:	Small HTTP/SSL proxy daemon
 Summary(pl.UTF-8):	Mały demon proxy
 Name:		tinyproxy
 Version:	1.8.4
-Release:	1
+Release:	2
 License:	GPL v2
 Group:		Networking/Daemons/HTTP
 Source0:	https://github.com/tinyproxy/tinyproxy/releases/download/%{version}/%{name}-%{version}.tar.bz2
